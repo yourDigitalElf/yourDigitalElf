@@ -1,23 +1,26 @@
 {
-  "name": "1-Passport-Example",
+  "name": "yourdigitalelf",
   "version": "1.0.0",
-  "description": "",
+  "description": "Christmas list hosting website ",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "start": "node server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourDigitalElf/yourDigitalElf.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourDigitalElf/yourDigitalElf/issues"
+  },
+  "homepage": "https://github.com/yourDigitalElf/yourDigitalElf#readme",
   "dependencies": {
-    "bcryptjs": "2.4.3",
-    "express": "^4.17.0",
-    "express-session": "^1.16.1",
-    "mysql2": "^1.6.5",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.3.5"
   }
 }
