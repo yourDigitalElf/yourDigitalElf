@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/yourDigitalElf/yourDigitalElf#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
-    "mysql": "^2.18.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
     "sequelize": "^6.3.5"
   }
 }
