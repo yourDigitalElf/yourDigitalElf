@@ -1,11 +1,21 @@
-/* form.signup, */
+/* form.signup,
 form.login {
 	margin-top: 50px;
-}
+} */
 
 body {
 	margin: 50px 0px;
 	padding: 0px;
 	text-align: center;
 	align: center;
+}
+
+#signup {
+	background: url(https://cdn3.vectorstock.com/i/1000x1000/21/12/christmas-background-with-santa-claus-reading-a-lo-vector-21322112.jpg);
+	background-size: cover;
+}
+
+#login {
+	background: url(https://cdn3.vectorstock.com/i/1000x1000/21/12/christmas-background-with-santa-claus-reading-a-lo-vector-21322112.jpg);
+	background-size: cover;
 }
