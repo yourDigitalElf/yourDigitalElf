@@ -1,14 +1,5 @@
 "use strict";
 
-<<<<<<< HEAD
-var fs        = require('fs');
-var path      = require('path');
-var Sequelize = require('sequelize');
-var basename  = path.basename(module.filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.js')[env];
-var db        = {};
-=======
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
@@ -16,7 +7,6 @@ var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.js")[env];
 var db = {};
->>>>>>> f3a381cc40d19a2362f4db6244f7ced28b43dc01
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);

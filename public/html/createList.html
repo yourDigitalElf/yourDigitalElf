@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Faster+One&family=Fredericka+the+Great&family=Henny+Penny&family=Monoton&display=swap" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="../stylesheets/style.css" type="text/css" /> 
+    <title>Create List</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navco mb-5">
+        <img src="../../config/assts/elfImg.webp" alt="elf pic" style="width: 5%; height: 5%;">
+    
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">=</span>
+        </button>
+        
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../html/index.html">Home</a>
+            </li>
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="contact.html">Contact <span class="sr-only">(current)</span></a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>             -->
+          </ul>          
+        </div>
+      </nav>
+
+      <div style="background: #ffaaaa;" class="card mb-3">
+        <!-- <img class="floatR" src="christmas-tree_87180.png" width="100" height="100" alt="Card image cap">
+        <img class="floatL" src="christmas-tree_87180.png" width="100" height="100" alt="Card image cap"> -->
+        <div class="card-body">
+
+            <h1 class="listTitle">
+                <span class="floatR">
+                    <img src="../../config/assts/christmas-tree_87180.png" width="100" height="100" alt="Card image cap">
+                </span>
+                Welcome to Your Digital Elf gift list
+                <span class="floatL">
+                    <img src="../../config/assts/christmas-tree_87180.png" width="100" height="100" alt="Card image cap">
+                </span>
+            </h1>
+            
+          <!-- <h5 class="card-title d-flex justify-content-center">Login below to create or view Christmas lists</h5>
+          
+          <p class="card-text d-flex justify-content-center">Use this app to share all of your family and friends Christmas lists virtually</p>           -->
+         
+        </div>
+      </div> 
+
+      <div style="background: #cef2c4" class="tile is-parent">
+        <article class="tile is-child notification inputB rcorners">
+          <p style="font-family: 'Fredericka the Great'" class="title">Get Started!</p>
+          <p class="subtitle">Enter desired gifts:</p>
+  
+          <div class="content">
+            <div class="control">
+              <p class="control has-icons-left">              
+                <input class="input is-hovered" id="address" type="text" placeholder="Enter Gifts">           
+                <span class="icon is-medium is-left">
+                  <i class="fas fa-tree"></i>
+                </span>
+              </p>
+            </div>
+  
+            <div class="control">
+              <p class="control has-icons-left">
+
+                          
+                <select style="font-family: fredericka the great; color: #7a4709" class="input is-hovered input" id="trail-rating" type="text">
+                    
+                  <option value="">Gift Rating</option>
+                  <option style="font-family: Monoton; color: #fca002" value="0">0 stars</option>
+                  <option style="font-family: Monoton; color: #fca002" value="1">1 star</option>
+                  <option style="font-family: Monoton; color: #fca002" value="2">2 stars</option>
+                  <option style="font-family: Monoton; color: #fca002" value="3">3 stars</option>
+                  <option style="font-family: Monoton; color: #fca002" value="4">4 stars</option>
+              </select>
+                <span class="icon is-large is-left">
+                  <i class="fas fa-tree"></i>
+                </span>
+              </p>
+              <a href="#" class="cardShadow btn btn-warning justify-content-left">Submit</a>
+            </div> 
+
+            <div style="background: #ff8080" class="container mt-3 mb-3">
+                <h2>Your List</h2>
+                <p>Items are listed below based on the star rating you selected</p>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Drum Set
+                    <span class="badge badge-warning badge-pill">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Puppy
+                    <span class="badge badge-warning badge-pill">1</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Socks
+                    <span class="badge badge-warning badge-pill">2</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Running shoes
+                    <span class="badge badge-warning badge-pill">3</span>
+                  </li>
+                  <li class="mb-3 list-group-item d-flex justify-content-between align-items-center">
+                    New car
+                    <span class="badge badge-warning badge-pill">4</span>
+                  </li>
+                </ul>
+              </div>
+
+
+           
+            <footer class="page-footer font-small blue">  
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                  <p>Brought to you by students from UW coding bootcamp</p>
+                </div>
+              </footer>
+    
+</body>
+</html>
