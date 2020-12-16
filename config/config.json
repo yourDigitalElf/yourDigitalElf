@@ -1,7 +1,7 @@
 {
 	"development": {
 		"username": "root",
-		"password": "steph45$U",
+		"password": ,
 		"database": "digital_elf_db",
 		"host": "127.0.0.1",
 		"dialect": "mysql"
