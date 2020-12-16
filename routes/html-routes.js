@@ -15,7 +15,11 @@ module.exports = function (app) {
 		res.sendFile(path.join(__dirname, "public/html/login"))
 	});
 
+
 	app.get("/create", function(req,res){
 		res.sendFile(path.join(__dirname, "createList.html"))
 	})
+
 };
+
+	// res.render("handlebars")
