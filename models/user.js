@@ -28,8 +28,20 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
 
-
   });
+
+  User.associate = models => {
+    User.hasMany(models.presents, {
+      foreignKey: {
+        onDelete: "cascade"
+      }
+    });
+
+    User.belongsToMany(models.user, {
+      as: "followie",
+      through: "users_followers"
+    })
+  };
 
 
 
