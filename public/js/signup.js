@@ -11,10 +11,10 @@ $(document).ready(function () {
 	signUpForm.on("submit", function (event) {
 		event.preventDefault();
 		var userData = {
-			firstName: firstNameInput.val().trim(),
-			lastName: lastNameInput.val().trim(),
+			// firstName: firstNameInput.val().trim(),
+			// lastName: lastNameInput.val().trim(),
 			userName: userNameInput.val().trim(),
-			email: emailInput.val().trim(),
+			// email: emailInput.val().trim(),
 			password: passwordInput.val().trim(),
 		};
 

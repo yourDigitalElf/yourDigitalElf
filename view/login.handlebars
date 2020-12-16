@@ -1,15 +1,31 @@
-<h1>
-    {{Your Digital Elf}}
-</h1>
+<nav class="navbar navbar-light bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Your Digital Elf</a>
+    </div>
+</nav>
+<div id="login" class="container mt-5 ">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-3 ">
+            <h2 class="">Member Login</h2>
+            <form class="login">
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="username" class="form-control" id="username-input" placeholder="Username" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password-input" placeholder="Password" />
+                </div>
+                <a type="submit" href="/list" class="btn btn-default btn-success">
+                    Login
+                </a>
+                <a class="forgot" href="#">Forgot Username?</a>
+            </form>
+            <br />
+            <p>Or sign up <a href="/signup">here</a></p>
+        </div>
+    </div>
+</div>
 
-<form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username" />
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password" />
-    </div>
-    <button type="submit">Login</button>
-</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>

@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 	const Present = sequelize.define("Present", {
 		present_name: {
-			type: DataTypes.String,
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len: [1, 400],
@@ -12,8 +12,10 @@ module.exports = (sequelize, DataTypes) => {
 	Present.associate = models => {
 		Present.belongsTo(models.user, {
 			foreignKey: {
+
 				allowNull: false,
 			},
+
 		});
 	};
 
