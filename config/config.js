@@ -1,11 +1,11 @@
 
-
+require("dotenv").config();
 
 module.exports = {
     "development": {
         "username": "root",
-        "password": null,
-        "database": "passport_demo",
+        "password": process.env.dbpassword,
+        "database": "digital_elf_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
       },
@@ -17,10 +17,7 @@ module.exports = {
         "dialect": "mysql"
       },
       "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
+        "use_env_variable": "JAWS_DB_URL",
         "dialect": "mysql"
       }
 }
