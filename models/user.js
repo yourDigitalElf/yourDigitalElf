@@ -30,6 +30,23 @@ module.exports = (sequelize, DataTypes) => {
 
   });
 
+  User.associate = models => {
+    User.hasMany(models.Present, {
+      foreignKey: {
+        onDelete: "cascade"
+      },
+      hooks: true
+    });
+
+    User.belongsToMany(models.User, {
+      as: "followie",
+      through: "users_followers",
+      hooks: true
+    })
+  };
+
+
+
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
@@ -41,20 +58,7 @@ module.exports = (sequelize, DataTypes) => {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-    // THIS CODE BELOW IS CAUSING THE BUG 
 
-  User.associate = models => {
-    User.hasMany(models.Presents, {
-      foreignKey: {
-        onDelete: "cascade"
-      }
-    });
-
-  //   User.belongsToMany(models.User, {
-  //     as: "followie",
-  //     through: "users_followers"
-  //   })
-  };
 
   return User;
 };
