@@ -28,6 +28,19 @@ module.exports = function (app) {
 	// requires user's list data; user related followies; and possibly other user info
 	app.get("/user:username", isAuthenticated, function(req,res){
 		
+		
+		res.render();
+	});
+
+
+	// load a page where you search for other people
+	app.get("/view", (req, res) => {
+		res.render()
+	});
+
+	// load list page that displays a person's list
+	app.get("/list", (req, res) => {
+		res.render()
 	});
 
 };
