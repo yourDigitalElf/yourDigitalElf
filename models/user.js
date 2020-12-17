@@ -43,18 +43,18 @@ module.exports = (sequelize, DataTypes) => {
 
     // THIS CODE BELOW IS CAUSING THE BUG 
 
-  // User.associate = models => {
-  //   User.hasMany(models.Presents, {
-  //     foreignKey: {
-  //       onDelete: "cascade"
-  //     }
-  //   });
+  User.associate = models => {
+    User.hasMany(models.Presents, {
+      foreignKey: {
+        onDelete: "cascade"
+      }
+    });
 
   //   User.belongsToMany(models.User, {
   //     as: "followie",
   //     through: "users_followers"
   //   })
-  // };
+  };
 
   return User;
 };
