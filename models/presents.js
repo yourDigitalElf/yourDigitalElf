@@ -1,19 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
 	const Present = sequelize.define("Present", {
-		present_name: {
-			type: DataTypes.String,
+		giftName: {
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len: [1, 400],
 			},
 		},
+		rating: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		}
 	});
 
 	Present.associate = models => {
-		Present.belongsTo(models.user, {
+		Present.belongsTo(models.User, {
 			foreignKey: {
+
 				allowNull: false,
 			},
+
 		});
 	};
 

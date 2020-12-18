@@ -3,6 +3,25 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function (app) {
+	//route to landingpage
+	app.get("/", (req, res) => {
+		res.render("index")
+	});
+
+	//route to login page
+	app.get("/login", (req, res) => {
+		res.render("login")
+	});
+
+	//route to signup page
+	app.get("/signup", (req, res) => {
+		res.render("signup")
+	});
+
+	//route to createlist page
+	app.get("/createList", (req, res) => {
+		res.render("createList")
+	});
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
@@ -31,7 +50,7 @@ module.exports = function (app) {
 	// Route for logging user out
 	app.get("/logout", function (req, res) {
 		req.logout();
-		res.redirect("/");
+		res.redirect("index");
 	});
 
 	// Route for getting some data about our user to be used client side
@@ -49,5 +68,5 @@ module.exports = function (app) {
 		}
 	});
 
-	
+
 };
