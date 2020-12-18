@@ -34,13 +34,23 @@ module.exports = function (app) {
 
 
 	// load a page where you search for other people
+	// requires an array of user's names
 	app.get("/view", (req, res) => {
 		res.render()
 	});
 
 	// load list page that displays a person's list
-	app.get("/list", (req, res) => {
+	// requires a param to identify the target user
+	// requires an array of presents associated with the target user
+	app.get("/list:username", (req, res) => {
 		res.render()
+	});
+
+
+	// when a logout button is hit
+	app.get("/logout", function (req, res) {
+		req.logout();
+		res.redirect("/");
 	});
 
 };
