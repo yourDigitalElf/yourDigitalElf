@@ -10,18 +10,32 @@ module.exports = function (sequelize, DataTypes) {
 			unique: true,
 			validate: {
 				isEmail: true,
-			},
+			}
+		},
+		userName: {
+			type: DataTypes.STRING,
+			unique: true,
+			allowNull: false
 		},
 		// The password cannot be null
 		password: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		firstName: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+
+		lastName: {
+			type: DataTypes.STRING,
+			allowNull: false
+		}
 	});
 
-	User.associate = () => {
-		User.belongsToMany(User);
-	};
+	// User.associate = () => {
+	// 	User.belongsToMany(User);
+	// };
 	// Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
 	User.prototype.validPassword = function (password) {
 		return bcrypt.compareSync(password, this.password);

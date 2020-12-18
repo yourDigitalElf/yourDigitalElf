@@ -7,10 +7,14 @@ module.exports = (sequelize, DataTypes) => {
 				len: [1, 400],
 			},
 		},
+		rating: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		}
 	});
 
 	Present.associate = models => {
-		Present.belongsTo(models.user, {
+		Present.belongsTo(models.User, {
 			foreignKey: {
 
 				allowNull: false,
