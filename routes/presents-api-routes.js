@@ -21,7 +21,7 @@ module.exports = function (app) {
   app.get("/api/presents:userId", function (req, res) {
     db.Present.findAll({
       where: {
-        userId: req.params.userId
+        UserId: req.params.userId
       },
       include: [db.User]
     }).then(function (dbPresent) {
@@ -35,8 +35,12 @@ module.exports = function (app) {
 
   // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
-    db.Present.create(req.body).then(function (dbPresent) {
-      res.render("createlist", { giftName: dbPresent })
+    db.Present.create({
+      giftName: req.body.giftName,
+      rating: req.body.rating,
+      UserId: req.user.id
+    }).then(function (dbPresent) {
+      res.render("createList", dbPresent)
       // res.json(dbPresent);
     })
   })
