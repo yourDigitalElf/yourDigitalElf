@@ -3,32 +3,33 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-  // GET route for getting all of the presents
-  app.get("/api/presents", function (req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.Present.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function (dbPresent) {
-      res.json(dbPresent);
-    });
-  });
-
-  // GET route for getting a specific present
-  app.get("/api/presents:id", function (req, res) {
-    db.Present.finOne({
-      where: {
-        id: req.params
-      },
-      include: [db.User]
-    }).then(function (dbPresent) {
-      console.log(dbPresent);
-      res.json(dbPresent);
+  //   // GET route for getting all of the presents
+  //   app.get("/api/presents", function(req, res) {
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+  //   db.Present.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbPresent) {
+  //     res.json(dbPresent);
+  //   });
+  // });
+    
+    // GET route for getting presents for a specific user 
+    app.get("/api/presents:userId", function (req, res) {
+        db.Present.findAll({
+            where: {
+                userId: req.params.userId
+            }, 
+            include: [db.User]
+        }).then(function(dbPresent) {
+            console.log(dbPresent);
+            res.json(dbPresent);
+        })
     })
-  })
+  
 
   // POST route for adding to a new present to the list
 
@@ -43,7 +44,7 @@ module.exports = function (app) {
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
-    db.Presnet.destroy({
+    db.Present.destroy({
       where: {
         id: req.params.id,
       },
