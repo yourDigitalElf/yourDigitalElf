@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    var loginForm = $("");
+    var loginButton = $("#loginBtn");
     var emailInput = $("input#username");
     var passwordInput = $("input#password");
 
     //When the form is submitted, we validate there's an username and password entered
-    loginForm.on("submit", function (event) {
+    loginButton.on("click", function (event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
