@@ -43,7 +43,7 @@ module.exports = function (app) {
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
-    db.Presnet.destroy({
+    db.Present.destroy({
       where: {
         id: req.params.id,
       },
