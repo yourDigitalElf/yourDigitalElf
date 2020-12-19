@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var loginForm = $("form.login");
+    var loginForm = $("");
     var emailInput = $("input#username");
     var passwordInput = $("input#password");
 
@@ -27,8 +27,8 @@ $(document).ready(function () {
             username: email,
             password: password
         })
-            .then(function (user) {
-                // window.location.replace("/createList");
+            .then(function () {
+                window.location.replace("/createList");
                 // If there's an error, log the error
             })
             .catch(function (err) {

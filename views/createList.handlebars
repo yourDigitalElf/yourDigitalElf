@@ -66,7 +66,7 @@
             <i class="fas fa-tree"></i>
           </span>
         </p>
-        <a type="submit" href="#" class="cardShadow btn btn-warning justify-content-left">Submit</a>
+        <a type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
       </div>
     </form>
     <div style="background: #ff8080" class="container mt-3 mb-3">
@@ -74,7 +74,7 @@
       <p>Items are listed below based on the star rating you selected</p>
       <ul class="list-group">
 
-        {{#each presents}}
+        {{#each Present}}
         {{> gifts/gifts-block}}
         {{/each}}
 
@@ -104,11 +104,7 @@
 
 </div>
 
-<footer class="page-footer font-small blue">
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <p>Brought to you by students from UW coding bootcamp</p>
-  </div>
-</footer>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/createList.js"></script>
