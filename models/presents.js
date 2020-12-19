@@ -21,7 +21,10 @@ module.exports = (sequelize, DataTypes) => {
 			},
 
 		});
+		console.log(Present);
+		
 	};
 
 	return Present;
+	
 };
