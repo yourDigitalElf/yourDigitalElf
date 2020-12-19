@@ -23,7 +23,7 @@ $(document).ready(function () {
     // creatGift does a post to our "api/present" route and if successful, redirects us the the createList page
     function createGift(giftName, rating) {
         $.post("/api/addpresent", {
-            giftname: giftName,
+            giftName: giftName,
             rating: rating
         })
             .then(function () {
