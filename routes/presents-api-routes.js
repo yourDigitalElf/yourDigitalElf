@@ -16,20 +16,20 @@ module.exports = function (app) {
   //     res.json(dbPresent);
   //   });
   // });
-    
-    // GET route for getting presents for a specific user 
-    app.get("/api/presents:userId", function (req, res) {
-        db.Present.findAll({
-            where: {
-                userId: req.params.userId
-            }, 
-            include: [db.User]
-        }).then(function(dbPresent) {
-            console.log(dbPresent);
-            res.json(dbPresent);
-        })
+
+  // GET route for getting presents for a specific user 
+  app.get("/api/presents:userId", function (req, res) {
+    db.Present.findAll({
+      where: {
+        userId: req.params.userId
+      },
+      include: [db.User]
+    }).then(function (dbPresent) {
+      console.log(dbPresent);
+      res.json(dbPresent);
     })
-  
+  })
+
 
   // POST route for adding to a new present to the list
 
