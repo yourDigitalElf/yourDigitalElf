@@ -1,12 +1,14 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated")
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Find all users 
-  app.get("/api/users", function(req, res) {
+  app.get("/api/users", function (req, res) {
     db.User.findAll({
         include: [db.Present]
+       
     }).then(function(dbUser) {
-      res.render("Ben's handlebar", dbUser);
+      res.render("users", dbUser);
     });
   });
 

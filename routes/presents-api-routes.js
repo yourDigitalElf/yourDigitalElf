@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
@@ -16,11 +17,11 @@ module.exports = function (app) {
   //   });
   // });
     
-    // GET route for getting presents for users 
-    app.get("/api/presents:specificUser", function (req, res) {
-        db.Present.finOne({
+    // GET route for getting presents for a specific user 
+    app.get("/api/presents:userId", function (req, res) {
+        db.Present.findAll({
             where: {
-                specificUser: req.params
+                userId: req.params.userId
             }, 
             include: [db.User]
         }).then(function(dbPresent) {
@@ -28,34 +29,38 @@ module.exports = function (app) {
             res.json(dbPresent);
         })
     })
+  
 
-    // POST route for adding to a new present to the list
-    app.post("/api/addpresent", isAuthenticated, function (req, res) {
-        db.Present.create(req.body).then(function(dbPresent) {
-            res.json(dbPresent);
-        })
+  // POST route for adding to a new present to the list
+
+  // needs to render all gifts not just the one added
+  app.post("/api/addpresent", isAuthenticated, function (req, res) {
+    db.Present.create(req.body).then(function (dbPresent) {
+      res.render("createlist", { giftName: dbPresent })
+      // res.json(dbPresent);
     })
+  })
 
 
-	// DELETE route for deleting presents
-	app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
-		db.Presnet.destroy({
-			where: {
-				id: req.params.id,
-			},
-		}).then(function (dbPresent) {
-			res.json(dbPresent);
-		});
-	});
+  // DELETE route for deleting presents
+  app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
+    db.Present.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbPresent) {
+      res.json(dbPresent);
+    });
+  });
 
-	// PUT route for updating presents
-	app.put("/api/presents", isAuthenticated, function (req, res) {
-		db.Present.update(req.body, {
-			where: {
-				id: req.body.id,
-			},
-		}).then(function (dbPresent) {
-			res.json(dbPresent);
-		});
-	});
+  // PUT route for updating presents
+  app.put("/api/presents", isAuthenticated, function (req, res) {
+    db.Present.update(req.body, {
+      where: {
+        id: req.body.id,
+      },
+    }).then(function (dbPresent) {
+      res.json(dbPresent);
+    });
+  });
 };
