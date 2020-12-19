@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 	const Present = sequelize.define("Present", {
-		present_name: {
+		giftName: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 	Present.associate = models => {
 		Present.belongsTo(models.User, {
 			foreignKey: {
-
+				
 				allowNull: false,
 			},
 

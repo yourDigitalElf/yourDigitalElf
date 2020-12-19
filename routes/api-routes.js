@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const user = require("../models/user");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 	//route to landingpage
@@ -19,22 +21,36 @@ module.exports = function (app) {
 	});
 
 	//route to createlist page
-	app.get("/createList", (req, res) => {
-		res.render("createList")
+	app.get("/createList", isAuthenticated, (req, res) => {
+		db.Present.findAll({
+			where: {
+				UserId: req.user.id
+			}
+		}).then((presentsArr) => {
+			res.render("createList", presentsArr)
+
+		})
 	});
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
-	app.post("/api/login", passport.authenticate("local"), function (req, res) {
-		res.json(req.user);
-	});
+	app.post("/api/login", passport.authenticate("local", { successRedirect: '/createList',
+	failureRedirect: '/login' })
+	//  (req, res) => {
+
+	// 	res.json(req.user);
+	// }
+	);
+
+
 
 	// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
 	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 	// otherwise send back an error
 	app.post("/api/signup", function (req, res) {
 		db.User.create({
-			name: req.body.name,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
 			email: req.body.email,
 			password: req.body.password,
 		})

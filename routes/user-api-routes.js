@@ -5,8 +5,21 @@ module.exports = function(app) {
   app.get("/api/users", function(req, res) {
     db.User.findAll({
         include: [db.Present]
+        // [{
+        //   firstName:
+        //   lastName:
+        //   email:
+        //   id:
+        //   Presents: [
+        //     {
+        //       rating:
+        //       name:
+        //     },
+        //     {}
+        //   ] 
+        // },{}]
     }).then(function(dbUser) {
-      res.json(dbUser);
+      res.render("bens handles he is making right now", dbUser);
     });
   });
 

@@ -27,7 +27,7 @@ $(document).ready(function () {
             username: email,
             password: password
         })
-            .then(function () {
+            .then(function (user) {
                 // window.location.replace("/createList");
                 // If there's an error, log the error
             })

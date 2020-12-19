@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
@@ -30,10 +31,12 @@ module.exports = function (app) {
     })
 
     // POST route for adding to a new present to the list
-    app.post("/api/addpresent", isAuthenticated, function (req, res) {
+    app.post("/api/addpresent", function (req, res) {
         db.Present.create(req.body).then(function(dbPresent) {
+            console.log(dbPresent);
             res.json(dbPresent);
         })
+        // res.end();
     })
 
 
