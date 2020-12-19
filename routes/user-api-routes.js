@@ -7,7 +7,7 @@ module.exports = function (app) {
     db.User.findAll({
       include: [db.Present]
     }).then(function (dbUser) {
-      res.json(dbUser);
+      res.render("users", dbUser);
     });
   });
 

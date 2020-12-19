@@ -23,6 +23,10 @@ module.exports = function (app) {
 	app.get("/addpresent", (req, res) => {
 		res.render("createList")
 	});
+
+	app.get("/users", (req, res) => {
+		res.render("users")
+	});
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
@@ -54,7 +58,7 @@ module.exports = function (app) {
 	// Route for logging user out
 	app.get("/logout", function (req, res) {
 		req.logout();
-		res.redirect("/");
+		res.redirect("index");
 	});
 
 	// Route for getting some data about our user to be used client side
