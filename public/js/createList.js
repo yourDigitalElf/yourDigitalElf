@@ -16,8 +16,8 @@ $(document).ready(function () {
 
         // If we have giftname and rating we run the createGift function and clear the form
         createGift(newPresent.giftName, newPresent.rating);
-        newGift.val(" ");
-        rating.val(" ");
+        newGift.val("");
+        rating.val("");
     })
 
     // creatGift does a post to our "api/present" route and if successful, redirects us the the createList page

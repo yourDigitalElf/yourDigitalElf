@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function (app) {
 	//route to landingpage
@@ -19,11 +20,11 @@ module.exports = function (app) {
 	});
 
 	//route to createlist page
-	app.get("/createList", (req, res) => {
+	app.get("/addpresent", (req, res) => {
 		res.render("createList")
 	});
 
-	app.get("/users", (req,res) => {
+	app.get("/users", (req, res) => {
 		res.render("users")
 	});
 	// Using the passport.authenticate middleware with our local strategy.
@@ -37,17 +38,20 @@ module.exports = function (app) {
 	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 	// otherwise send back an error
 	app.post("/api/signup", function (req, res) {
+		console.log(req.body.firstName);
 		db.User.create({
-			firstName: req.body.name,
-			lastName: req.body.name,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
 			email: req.body.email,
 			password: req.body.password,
 		})
 			.then(function () {
+				// res.end();
 				res.redirect(307, "/api/login");
 			})
 			.catch(function (err) {
 				res.status(401).json(err);
+				console.log(err);
 			});
 	});
 
