@@ -3,25 +3,25 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-  // GET route for getting all of the presents
-  app.get("/api/presents", function (req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.Present.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function (dbPresent) {
-      res.json(dbPresent);
-    });
-  });
+  //   // GET route for getting all of the presents
+  //   app.get("/api/presents", function(req, res) {
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+  //   db.Present.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbPresent) {
+  //     res.json(dbPresent);
+  //   });
+  // });
 
-  // GET route for getting a specific present
-  app.get("/api/presents:id", function (req, res) {
-    db.Present.finOne({
+  // GET route for getting presents for a specific user 
+  app.get("/api/presents:userId", function (req, res) {
+    db.Present.findAll({
       where: {
-        id: req.params
+        UserId: req.params.userId
       },
       include: [db.User]
     }).then(function (dbPresent) {
@@ -30,12 +30,17 @@ module.exports = function (app) {
     })
   })
 
+
   // POST route for adding to a new present to the list
 
   // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
-    db.Present.create(req.body).then(function (dbPresent) {
-      res.render("createlist", { giftName: dbPresent })
+    db.Present.create({
+      giftName: req.body.giftName,
+      rating: req.body.rating,
+      UserId: req.user.id
+    }).then(function (dbPresent) {
+      res.render("createList", dbPresent)
       // res.json(dbPresent);
     })
   })
@@ -43,7 +48,7 @@ module.exports = function (app) {
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
-    db.Presnet.destroy({
+    db.Present.destroy({
       where: {
         id: req.params.id,
       },
