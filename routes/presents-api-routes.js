@@ -2,25 +2,25 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    // GET route for getting all of the presents
-    app.get("/api/presents", function(req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.Present.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbPresent) {
-      res.json(dbPresent);
-    });
-  });
+  //   // GET route for getting all of the presents
+  //   app.get("/api/presents", function(req, res) {
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+  //   db.Present.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbPresent) {
+  //     res.json(dbPresent);
+  //   });
+  // });
     
-    // GET route for getting a specific present
-    app.get("/api/presents:id", function (req, res) {
+    // GET route for getting presents for users 
+    app.get("/api/presents:specificUser", function (req, res) {
         db.Present.finOne({
             where: {
-                id: req.params
+                specificUser: req.params
             }, 
             include: [db.User]
         }).then(function(dbPresent) {
