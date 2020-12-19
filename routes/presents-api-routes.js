@@ -19,7 +19,7 @@ module.exports = function (app) {
 
   // GET route for getting a specific present
   app.get("/api/presents:id", function (req, res) {
-    db.Present.finOne({
+    db.Present.findAll({
       where: {
         id: req.params
       },
