@@ -39,22 +39,23 @@ module.exports = function (app) {
       rating: req.body.rating,
       UserId: req.user.id
     }).then(function (dbPresent) {
-      console.log("in here")
-      let hbPresent = {
-        Present: [{
-          giftName: dbPresent.dataValues.giftName,
-          rating: dbPresent.dataValues.rating
-        }]
-      };
+      res.redirect("/createList");
+      // console.log("in here")
+      // let hbPresent = {
+      //   Present: [{
+      //     giftName: dbPresent.dataValues.giftName,
+      //     rating: dbPresent.dataValues.rating
+      //   }]
+      // };
 
-      console.log(hbPresent);
+      // console.log(hbPresent);
 
-      res.status(500).end();
+      // res.status(500).end();
       // res.json(dbPresent);
     })
   })
 
-  app.get("/createList", isAuthenticated ,(req, res) => {
+  app.get("/createList", isAuthenticated, (req, res) => {
     console.log("is reloading")
     db.Present.findAll({
       where: {
@@ -62,7 +63,7 @@ module.exports = function (app) {
       }
     }).then((data) => {
       let Present = [];
-      for(let i = 0; i < data.length; i++){
+      for (let i = 0; i < data.length; i++) {
         presObj = {
           giftName: data[i].dataValues.giftName,
           rating: data[i].dataValues.rating,
@@ -70,7 +71,7 @@ module.exports = function (app) {
 
         Present.push(presObj);
       };
-      console.log({Present: Present});
+      console.log({ Present: Present });
       res.render("createList", { Present: Present });
     })
   })

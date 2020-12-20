@@ -27,7 +27,8 @@ $(document).ready(function () {
             rating: rating
         })
             .then(function () {
-                window.location.replace("/user/retrieve");
+                location.reload();
+                // window.location.replace("/user/retrieve");
                 // If there's an error, log the error
                 console.log("success")
                 // window.location.replace("/cr")
