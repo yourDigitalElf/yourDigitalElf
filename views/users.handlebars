@@ -30,9 +30,12 @@
     <div class="cardShadow card">
        <ul class="list-group">
 
-            {{#each Presents}}
-        {{> users/users-block }}
-        {{/each}}
+          {{#each user}}
+          <p>Name: {{firstName }} {{lastName}}</p>
+          {{/each}}
+          {{#each user.presents}}
+          {{> users/users-block }}
+          {{/each}}
 {{!-- 
            <li class="list-group-item d-flex justify-content-between align-items-center">
                     Handlebars
