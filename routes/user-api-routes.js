@@ -5,14 +5,9 @@ module.exports = function (app) {
   // Find all users 
   app.get("/api/users", function (req, res) {
     db.User.findAll({
-<<<<<<< HEAD
-      include: [db.Present]
-    }).then(function (dbUser) {
-=======
         include: [db.Present]
        
     }).then(function(dbUser) {
->>>>>>> 1b2b35f8ef049e6a06a3f03444923ff511eee2d8
       res.render("users", dbUser);
     });
   });
