@@ -36,7 +36,7 @@ module.exports = function (app) {
   // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
     db.Present.create(req.body).then(function (dbPresent) {
-      res.render("createlist", { giftName: dbPresent })
+      res.render("createlist")
       // res.json(dbPresent);
     })
   })
@@ -44,6 +44,7 @@ module.exports = function (app) {
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
+    console.log("is deleting")
     db.Present.destroy({
       where: {
         id: req.params.id,
