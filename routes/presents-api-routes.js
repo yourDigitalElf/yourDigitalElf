@@ -39,14 +39,46 @@ module.exports = function (app) {
       rating: req.body.rating,
       UserId: req.user.id
     }).then(function (dbPresent) {
-      res.render("createList", dbPresent)
+      console.log("in here")
+      let hbPresent = {
+        Present: [{
+          giftName: dbPresent.dataValues.giftName,
+          rating: dbPresent.dataValues.rating
+        }]
+      };
+
+      console.log(hbPresent);
+
+      res.status(500).end();
       // res.json(dbPresent);
+    })
+  })
+
+  app.get("/createList", isAuthenticated ,(req, res) => {
+    console.log("is reloading")
+    db.Present.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then((data) => {
+      let Present = [];
+      for(let i = 0; i < data.length; i++){
+        presObj = {
+          giftName: data[i].dataValues.giftName,
+          rating: data[i].dataValues.rating,
+        };
+
+        Present.push(presObj);
+      };
+      console.log({Present: Present});
+      res.render("createList", { Present: Present });
     })
   })
 
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
+    console.log("is deleting")
     db.Present.destroy({
       where: {
         id: req.params.id,
