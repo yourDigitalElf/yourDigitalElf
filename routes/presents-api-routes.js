@@ -36,8 +36,11 @@ module.exports = function (app) {
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
     db.Present.create({giftName: req.body.giftName,
     rating: req.body.rating,
-  UserId: req.user.id}).then(function (dbPresent) {
-      res.render("createlist", dbPresent)
+  UserId: req.user.id}).then(function (dbPresent)
+   {
+     console.log(dbPresent)
+      res.render("createList", dbPresent)
+      
       // res.json(dbPresent);
     })
   })

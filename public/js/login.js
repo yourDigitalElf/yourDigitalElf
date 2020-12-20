@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var loginForm = $("");
+    var loginForm = $("#createBtn");
     var emailInput = $("input#username");
     var passwordInput = $("input#password");
 
