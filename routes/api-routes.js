@@ -20,16 +20,16 @@ module.exports = function (app) {
 	});
 
 	//route to createlist page
-	app.get("/createList", isAuthenticated, (req, res) => {
-		db.Present.findAll({
-			where: {
-				UserId: req.user.id
-			}
-		}).then((presentsArr) => {
-			res.render("createList", presentsArr)
+	// app.get("/createList", isAuthenticated, (req, res) => {
+	// 	db.Present.findAll({
+	// 		where: {
+	// 			UserId: req.user.id
+	// 		}
+	// 	}).then((presentsArr) => {
+	// 		res.render("createList", presentsArr)
 
-		})
-	});
+	// 	})
+	// });
 
 	app.get("/users", (req, res) => {
 		res.render("users")
