@@ -20,6 +20,7 @@ module.exports = function (app) {
 	});
 
 	//route to createlist page
+<<<<<<< HEAD
 	app.get("/createList", (req, res) => {
 		db.Present.findAll({})
 			// where: {
@@ -27,9 +28,18 @@ module.exports = function (app) {
 			// }
 		}).then((presentsArr) => {
 			res.render("createList", presentsArr)
+=======
+	// app.get("/createList", isAuthenticated, (req, res) => {
+	// 	db.Present.findAll({
+	// 		where: {
+	// 			UserId: req.user.id
+	// 		}
+	// 	}).then((presentsArr) => {
+	// 		res.render("createList", presentsArr)
+>>>>>>> Develop
 
-		})
-	});
+	// 	})
+	// });
 
 	app.get("/users", (req, res) => {
 		res.render("users")
@@ -59,7 +69,6 @@ module.exports = function (app) {
 			password: req.body.password,
 		})
 			.then(function () {
-				// res.end();
 				res.redirect(307, "/api/login");
 			})
 			.catch(function (err) {
@@ -74,20 +83,20 @@ module.exports = function (app) {
 		res.redirect("index");
 	});
 
-	// Route for getting some data about our user to be used client side
-	app.get("/api/user_data", function (req, res) {
-		if (!req.user) {
-			// The user is not logged in, send back an empty object
-			res.json({});
-		} else {
-			// Otherwise send back the user's email and id
-			// Sending back a password, even a hashed password, isn't a good idea
-			res.json({
-				email: req.user.email,
-				id: req.user.id,
-			});
-		}
-	});
+	// // Route for getting some data about our user to be used client side
+	// app.get("/api/user_data", function (req, res) {
+	// 	if (!req.user) {
+	// 		// The user is not logged in, send back an empty object
+	// 		res.json({});
+	// 	} else {
+	// 		// Otherwise send back the user's email and id
+	// 		// Sending back a password, even a hashed password, isn't a good idea
+	// 		res.json({
+	// 			email: req.user.email,
+	// 			id: req.user.id,
+	// 		});
+	// 	}
+	// });
 
 
 };
