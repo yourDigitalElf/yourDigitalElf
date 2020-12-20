@@ -3,19 +3,19 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-  //   // GET route for getting all of the presents
-  //   app.get("/api/presents", function(req, res) {
-  //   var query = {};
-  //   if (req.query.user_id) {
-  //     query.UserId = req.query.user_id;
-  //   }
-  //   db.Present.findAll({
-  //     where: query,
-  //     include: [db.User]
-  //   }).then(function(dbPresent) {
-  //     res.json(dbPresent);
-  //   });
-  // });
+  // GET route for getting all of the presents
+  app.get("/api/users", function (req, res) {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
+    db.Present.findAll({
+      where: query,
+      // include: [db.User]
+    }).then(function (dbPresent) {
+      res.json(dbPresent);
+    });
+  });
 
   // GET route for getting presents for a specific user 
   app.get("/api/presents:userId", function (req, res) {
@@ -33,29 +33,29 @@ module.exports = function (app) {
 
   // POST route for adding to a new present to the list
 
-  // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
     db.Present.create({
       giftName: req.body.giftName,
       rating: req.body.rating,
       UserId: req.user.id
     }).then(function (dbPresent) {
-      console.log("in here")
-      let hbPresent = {
-        Present: [{
-          giftName: dbPresent.dataValues.giftName,
-          rating: dbPresent.dataValues.rating
-        }]
-      };
+      res.redirect("/createList");
+      // console.log("in here")
+      // let hbPresent = {
+      //   Present: [{
+      //     giftName: dbPresent.dataValues.giftName,
+      //     rating: dbPresent.dataValues.rating
+      //   }]
+      // };
 
-      console.log(hbPresent);
+      // console.log(hbPresent);
 
-      res.status(500).end();
+      // res.status(500).end();
       // res.json(dbPresent);
     })
   })
 
-  app.get("/createList", isAuthenticated ,(req, res) => {
+  app.get("/createList", isAuthenticated, (req, res) => {
     console.log("is reloading")
     db.Present.findAll({
       where: {
@@ -63,7 +63,7 @@ module.exports = function (app) {
       }
     }).then((data) => {
       let Present = [];
-      for(let i = 0; i < data.length; i++){
+      for (let i = 0; i < data.length; i++) {
         presObj = {
           giftName: data[i].dataValues.giftName,
           rating: data[i].dataValues.rating,
@@ -72,7 +72,7 @@ module.exports = function (app) {
 
         Present.push(presObj);
       };
-      console.log({Present: Present});
+      console.log({ Present: Present });
       res.render("createList", { Present: Present });
     })
   })
