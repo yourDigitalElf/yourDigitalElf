@@ -34,15 +34,6 @@ module.exports = function (app) {
 
   // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
-<<<<<<< HEAD
-    db.Present.create({giftName: req.body.giftName,
-    rating: req.body.rating,
-  UserId: req.user.id}).then(function (dbPresent)
-   {
-     console.log(dbPresent)
-      res.render("createList", dbPresent)
-      
-=======
     db.Present.create({
       giftName: req.body.giftName,
       rating: req.body.rating,
@@ -59,7 +50,6 @@ module.exports = function (app) {
       console.log(hbPresent);
 
       res.status(500).end();
->>>>>>> Develop
       // res.json(dbPresent);
     })
   })
@@ -88,12 +78,8 @@ module.exports = function (app) {
 
   // DELETE route for deleting presents
   app.delete("/api/presents/:id", isAuthenticated, function (req, res) {
-<<<<<<< HEAD
-    db.Presnet.destroy({
-=======
     console.log("is deleting")
     db.Present.destroy({
->>>>>>> Develop
       where: {
         id: req.params.id,
       },

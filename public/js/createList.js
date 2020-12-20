@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var giftForm = $("#addBtn");
-    var newGift = $("input#gifts-input");
+    var newGift = $("#gifts-input");
     var rating = $("select#gift-rating");
 
     giftForm.on("click", function (event) {
@@ -27,10 +27,8 @@ $(document).ready(function () {
             rating: rating
         })
             .then(function () {
-                window.location.replace("/user/retrieve");
+                window.location.replace("/createList");
                 // If there's an error, log the error
-                console.log("success")
-                // window.location.replace("/cr")
             })
             .catch(function (err) {
                 console.log(err);
