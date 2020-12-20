@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    var giftForm = $("form#present");
+    var giftForm = $("#addBtn");
     var newGift = $("input#gifts-input");
     var rating = $("select#gift-rating");
 
-    giftForm.on("submit", function (event) {
+    giftForm.on("click", function (event) {
         event.preventDefault();
 
         var newPresent = {
