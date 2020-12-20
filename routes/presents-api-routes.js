@@ -72,7 +72,22 @@ module.exports = function (app) {
 
         Present.push(presObj);
       };
-      console.log({ Present: Present });
+      console.log(Present);
+      console.log(Present[0].rating)
+
+
+      for(let i = 0; i < Present.length -1; i++){
+
+        for(let j = i+1; j < Present.length; j++){
+          if(Present[i].rating < Present[j].rating){
+            let tempPresHolder = Present[j];
+            Present[j] = Present[i];
+            Present[i] = tempPresHolder;
+          }; 
+        };
+      };
+
+      console.log(Present);
       res.render("createList", { Present: Present });
     })
   })
