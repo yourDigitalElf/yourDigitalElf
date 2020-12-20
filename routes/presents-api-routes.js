@@ -31,66 +31,6 @@ module.exports = function (app) {
   })
 
 
-  // POST route for adding to a new present to the list
-
-  app.post("/api/addpresent", isAuthenticated, function (req, res) {
-    db.Present.create({
-      giftName: req.body.giftName,
-      rating: req.body.rating,
-      UserId: req.user.id
-    }).then(function (dbPresent) {
-      res.redirect("/createList");
-      // console.log("in here")
-      // let hbPresent = {
-      //   Present: [{
-      //     giftName: dbPresent.dataValues.giftName,
-      //     rating: dbPresent.dataValues.rating
-      //   }]
-      // };
-
-      // console.log(hbPresent);
-
-      // res.status(500).end();
-      // res.json(dbPresent);
-    })
-  })
-
-  app.get("/createList", isAuthenticated, (req, res) => {
-    console.log("is reloading")
-    db.Present.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then((data) => {
-      let Present = [];
-      for (let i = 0; i < data.length; i++) {
-        presObj = {
-          giftName: data[i].dataValues.giftName,
-          rating: data[i].dataValues.rating,
-          id: data[i].dataValues.id
-        };
-
-        Present.push(presObj);
-      };
-      console.log(Present);
-      console.log(Present[0].rating)
-
-
-      for(let i = 0; i < Present.length -1; i++){
-
-        for(let j = i+1; j < Present.length; j++){
-          if(Present[i].rating < Present[j].rating){
-            let tempPresHolder = Present[j];
-            Present[j] = Present[i];
-            Present[i] = tempPresHolder;
-          }; 
-        };
-      };
-
-      console.log(Present);
-      res.render("createList", { Present: Present });
-    })
-  })
 
 
   // DELETE route for deleting presents
