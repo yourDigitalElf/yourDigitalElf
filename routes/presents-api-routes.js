@@ -67,6 +67,7 @@ module.exports = function (app) {
         presObj = {
           giftName: data[i].dataValues.giftName,
           rating: data[i].dataValues.rating,
+          id: data[i].dataValues.id
         };
 
         Present.push(presObj);
