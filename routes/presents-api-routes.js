@@ -3,19 +3,19 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
-  //   // GET route for getting all of the presents
-  //   app.get("/api/presents", function(req, res) {
-  //   var query = {};
-  //   if (req.query.user_id) {
-  //     query.UserId = req.query.user_id;
-  //   }
-  //   db.Present.findAll({
-  //     where: query,
-  //     include: [db.User]
-  //   }).then(function(dbPresent) {
-  //     res.json(dbPresent);
-  //   });
-  // });
+  // GET route for getting all of the presents
+  app.get("/api/users", function (req, res) {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
+    db.Present.findAll({
+      where: query,
+      // include: [db.User]
+    }).then(function (dbPresent) {
+      res.json(dbPresent);
+    });
+  });
 
   // GET route for getting presents for a specific user 
   app.get("/api/presents:userId", function (req, res) {
@@ -33,7 +33,6 @@ module.exports = function (app) {
 
   // POST route for adding to a new present to the list
 
-  // needs to render all gifts not just the one added
   app.post("/api/addpresent", isAuthenticated, function (req, res) {
     db.Present.create({
       giftName: req.body.giftName,

@@ -6,12 +6,15 @@ $(document).ready(function () {
         viewAll();
     });
 
-    
+
     function viewAll() {
-        $.get("/api/users", {})
+        $.get("/api/users", function (req, res) {
+            res.render("users")
+        })
+
             .catch(function (err) {
                 console.log(err);
             });
     }
-    
+
 });
