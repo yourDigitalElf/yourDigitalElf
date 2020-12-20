@@ -1,62 +1,47 @@
 <nav class="navbar navbar-expand-lg navco mb-5">
-    <img src="../assts/elfImg.webp" alt="elf pic" style="width: 5%; height: 5%;">
+  <img src="../assts/elfImg.webp" alt="elf pic" style="width: 5%; height: 5%;">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">=</span>
-    </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">=</span>
+  </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-        </ul>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
 <div style="background: #ffaaaa;" class="card mb-3">
   <img class="elfPic" src="../assts/giftPic.png" width="100" height="100" alt="Card image cap">
   <h1 class="listTitle"> Check out the lists added to our app!!</h1>
   <div class="card-body">
-    
+
   </div>
 </div>
 
 <main id="usersList" class="container">
-    <div class="row">
-  <div style="background: #ff8080" class="container mt-3 mb-3">
-    <div class="cardShadow card">
-       <ul class="list-group">
+  <div class="row">
+    <div style="background: #ff8080" class="container mt-3 mb-3">
+      <div class="cardShadow card">
+        <ul class="list-group">
 
           {{#each user}}
           <p>Name: {{firstName }} {{lastName}}</p>
-          {{/each}}
           {{#each presents}}
           {{> users/users-block }}
           {{/each}}
-{{!-- 
-           <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Handlebars
-                    <span class="badge badge-warning badge-pill">0</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Data
-                    <span class="badge badge-warning badge-pill">1</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Here
-                    <span class="badge badge-warning badge-pill">2</span>
-                  </li> --}}
-</ul>
-    
-    </div>
-  </div>   
+          {{/each}}
 
-   </main>
-        
+        </ul>
 
+      </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/signup.js"></script>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/signup.js"></script>

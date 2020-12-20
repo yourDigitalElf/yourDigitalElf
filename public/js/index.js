@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     let viewAll = $("#viewAll");
 
@@ -6,12 +7,13 @@ $(document).ready(function () {
         viewAll();
     });
 
-    
     function viewAll() {
         $.get("/api/users", {})
+
             .catch(function (err) {
                 console.log(err);
             });
-    }
-    
+    };
+
+
 });
