@@ -32,17 +32,48 @@ module.exports = function (app) {
 	});
 
 	app.get("/users", (req, res) => {
-		res.render("users")
+		db.User.findAll({
+			include: [db.Present]
+		}).then((data) => {
+			let hbArr = [];
+			let presArr = [];
+			for(let i = 0; i < data.length; i++){
+				
+				for(let j = 0; j < data[i].dataValues.Presents.length; j++){
+					let presCon = {
+						giftName: data[i].dataValues.Presents[j].giftName,
+						rating: data[i].dataValues.Presents[j].rating
+					};
+
+					presArr.push(presCon);
+				};
+
+				let usePres = {
+					firstName: data[i].dataValues.firstName,
+					lastName: data[i].dataValues.lastName,
+					presents: presArr
+				};
+
+				hbArr.push(usePres);
+			};
+			console.log(hbArr)
+			console.log(hbArr[0].presents)
+			console.log(hbArr[0].presents[0])
+			res.render("users", {user: hbArr});
+		});
+
 	});
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
-	app.post("/api/login", passport.authenticate("local", { successRedirect: '/createList',
-	failureRedirect: '/login' })
-	//  (req, res) => {
+	app.post("/api/login", passport.authenticate("local", {
+		successRedirect: '/createList',
+		failureRedirect: '/login'
+	})
+		//  (req, res) => {
 
-	// 	res.json(req.user);
-	// }
+		// 	res.json(req.user);
+		// }
 	);
 
 

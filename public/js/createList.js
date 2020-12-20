@@ -27,12 +27,19 @@ $(document).ready(function () {
             rating: rating
         })
             .then(function () {
+<<<<<<< HEAD
                 window.location.replace("/createList");
+=======
+                location.reload();
+                // window.location.replace("/user/retrieve");
+>>>>>>> Develop
                 // If there's an error, log the error
             })
-            .catch(function (err) {
-                console.log(err);
-            });
+            // .catch(function (err) {
+            //     console.log(err);
+            // }).finally(()=>{
+            //     window.location.replace("/user/retrieve");
+            // })
     }
 
 
