@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navco mb-5">
+<nav class="navbar navbar-expand-lg navco mb-5 pt-5 px-5">
   <img src="../assts/elfImg.webp" alt="elf pic" style="width: 5%; height: 5%;">
+  <p style="font-family: 'henny penny'" class="ml-3 test d-flex justify-content-center">Your Digital Elf.</p>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,11 +10,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
 
+      <li class="nav-item" style="font-family: 'fredericka the great'">
+        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li>
+        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/logout">Logout</a>
+        </li>
     </ul>
   </div>
 </nav>
@@ -22,16 +25,17 @@
 
   <div class="card-body">
 
-    <h1 class="listTitle">
+    <h1 class="listTitle pt-5">
       <span class="floatR">
         <img src="../assts/christmas-tree_87180.png" width="100" height="100" alt="Card image cap">
       </span>
       Welcome to Your Digital Elf gift list
-
       <span class="floatL">
         <img src="../assts/christmas-tree_87180.png" width="100" height="100" alt="Card image cap">
       </span>
     </h1>
+
+
   </div>
 </div>
 
@@ -45,7 +49,7 @@
         <p class="control has-icons-left">
           <input class="input is-hovered" id="gifts-input" type="text" placeholder="Enter Gifts">
           <span class="icon is-medium is-left">
-            <i style="color: red" class="fas fa-gift"></i>
+            <i class="fas fa-tree"></i>
           </span>
         </p>
       </div>
@@ -57,34 +61,34 @@
 
             <option value="">Gift Rating</option>
             <option style="font-family: Monoton; color: #fca002" value="0">0 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="1">1 stars</option>
+            <option style="font-family: Monoton; color: #fca002" value="1">1 star</option>
             <option style="font-family: Monoton; color: #fca002" value="2">2 stars</option>
             <option style="font-family: Monoton; color: #fca002" value="3">3 stars</option>
             <option style="font-family: Monoton; color: #fca002" value="4">4 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="5">5 stars</option>
           </select>
           <span class="icon is-large is-left">
-            <i style="color: red" class="fas fa-star"></i>
+            <i class="fas fa-tree"></i>
           </span>
         </p>
         <a id="addBtn" type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
       </div>
     </form>
     <div class="row">
-      <div style="background: #ff8080" class="container mt-3 mb-3">
-        <h2 class="listSty">Your List</h2>
-        <p class="listSty">Items are listed below based on the star rating you selected</p>
-        <div class="cardShadow card mb-3">
-          <ul class="mb-3 list-group">
+    <div style="background: #ff8080" class="container mt-3 mb-3 py-5 px-5 rounded">
+      <h2 class="listSty">Your List</h2>
+      <p class="listSty">Items are listed below based on the star rating you selected</p>
+      <br>
+      <div class="cardShadow card mb-3">
+      <ul class="mb-3 list-group">
 
-            {{#each Present}}
-            {{> gifts/gifts-block}}
+        {{#each Present}}
+        {{> gifts/gifts-block}}
 
-            {{/each}}
+        {{/each}}
 
-          </ul>
-        </div>
+      </ul>
       </div>
+    </div>
     </div>
 
 </div>
