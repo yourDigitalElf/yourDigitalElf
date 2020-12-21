@@ -28,6 +28,7 @@ $(document).ready(function () {
             password: password
         })
             .then(function () {
+                console.log("success")
                 window.location.replace("/createList");
                 // If there's an error, log the error
             })
