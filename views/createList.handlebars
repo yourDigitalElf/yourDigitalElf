@@ -61,7 +61,6 @@
             <option style="font-family: Monoton; color: #fca002" value="2">2 stars</option>
             <option style="font-family: Monoton; color: #fca002" value="3">3 stars</option>
             <option style="font-family: Monoton; color: #fca002" value="4">4 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="5">5 stars</option>
           </select>
           <span class="icon is-large is-left">
             <i class="fas fa-tree"></i>
@@ -70,10 +69,12 @@
         <a id="addBtn" type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
       </div>
     </form>
+    <div class="row">
     <div style="background: #ff8080" class="container mt-3 mb-3">
-      <h2>Your List</h2>
-      <p>Items are listed below based on the star rating you selected</p>
-      <ul class="list-group">
+      <h2 class="listSty">Your List</h2>
+      <p class="listSty">Items are listed below based on the star rating you selected</p>
+      <div class="cardShadow card mb-3">
+      <ul class="mb-3 list-group">
 
         {{#each Present}}
         {{> gifts/gifts-block}}
@@ -81,6 +82,8 @@
         {{/each}}
 
       </ul>
+      </div>
+    </div>
     </div>
 
 </div>
