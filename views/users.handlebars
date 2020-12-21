@@ -24,6 +24,17 @@
   </div>
 </div>
 
+{{!-- <div>
+  <form>
+    <label for="fname">First Name</label>
+    <input type="text" id="fname">
+    <br><br>
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname">
+    <button id="searchUser">Search</button>
+  </form>
+</div> --}}
+
 <main id="usersList" class="container">
   <div class="row">
     <div style="background: #ff8080" class="container mt-3 mb-3">
@@ -31,7 +42,11 @@
         <ul class="list-group">
 
           {{#each user}}
+<<<<<<< HEAD
           <h4>Name: {{firstName }} {{lastName}}</h4>
+=======
+          <p style="font-family: 'playfair display'">Name: {{firstName }} {{lastName}}</p>
+>>>>>>> Develop
           {{#each presents}}
           {{> users/users-block }}
           {{/each}}
@@ -45,3 +60,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/signup.js"></script>
+<script>

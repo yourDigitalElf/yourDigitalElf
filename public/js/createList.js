@@ -30,11 +30,22 @@ $(document).ready(function () {
                 location.reload();
                 // window.location.replace("/user/retrieve");
                 // If there's an error, log the error
-                console.log("success")
-                // window.location.replace("/cr")
             })
 
     }
 
+        $(function() {
+            $(".delGift").on("click", function(event) {
+                let id = $(this).data("id");
 
+                $.ajax("/api/presents/" + id, {
+                    type: "DELETE"
+                }).then(
+                    function(){
+                        console.log("deleted id", id);
+                        location.reload();
+                    }
+                )
+            });
+        });
 });
