@@ -3,12 +3,13 @@
 //     let viewAll = $("#viewAll");
 
 //     viewAll.on("click", function (event) {
+//         // console.log(event)
 //         event.preventDefault();
 //         viewAll();
 //     });
 
 //     function viewAll() {
-//         $.get("/api/users", {})
+//         $.get("/users", {})
 
 //             .catch(function (err) {
 //                 console.log(err);
