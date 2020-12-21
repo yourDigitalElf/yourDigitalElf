@@ -31,11 +31,7 @@ $(document).ready(function () {
                 // window.location.replace("/user/retrieve");
                 // If there's an error, log the error
             })
-            // .catch(function (err) {
-            //     console.log(err);
-            // }).finally(()=>{
-            //     window.location.replace("/user/retrieve");
-            // })
+
     }
 
         $(function() {
