@@ -12,11 +12,12 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item" style="font-family: 'fredericka the great'">
-        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/">Home<span
+            class="sr-only">(current)</span></a>
       </li>
-      <li>
+      <li class="nav-item" style="font-family: 'fredericka the great'">
         <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/logout">Logout</a>
-        </li>
+      </li>
     </ul>
   </div>
 </nav>
@@ -49,7 +50,7 @@
         <p class="control has-icons-left">
           <input class="input is-hovered" id="gifts-input" type="text" placeholder="Enter Gifts">
           <span class="icon is-medium is-left">
-            <i class="fas fa-tree"></i>
+            <i class="fas fa-gift" style="color: red;"></i>
           </span>
         </p>
       </div>
@@ -67,28 +68,28 @@
             <option style="font-family: Monoton; color: #fca002" value="4">4 stars</option>
           </select>
           <span class="icon is-large is-left">
-            <i class="fas fa-tree"></i>
+            <i class="fas fa-star" style="color: red;"></i>
           </span>
         </p>
         <a id="addBtn" type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
       </div>
     </form>
     <div class="row">
-    <div style="background: #ff8080" class="container mt-3 mb-3 py-5 px-5 rounded">
-      <h2 class="listSty">Your List</h2>
-      <p class="listSty">Items are listed below based on the star rating you selected</p>
-      <br>
-      <div class="cardShadow card mb-3">
-      <ul class="mb-3 list-group">
+      <div style="background: #ff8080" class="container mt-3 mb-3 py-5 px-5 rounded">
+        <h2 class="listSty">Your List</h2>
+        <p class="listSty">Items are listed below based on the star rating you selected</p>
+        <br>
+        <div class="cardShadow card mb-3">
+          <ul class="mb-3 list-group">
 
-        {{#each Present}}
-        {{> gifts/gifts-block}}
+            {{#each Present}}
+            {{> gifts/gifts-block}}
 
-        {{/each}}
+            {{/each}}
 
-      </ul>
+          </ul>
+        </div>
       </div>
-    </div>
     </div>
 
 </div>
