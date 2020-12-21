@@ -1,20 +1,15 @@
 var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+
 module.exports = function (app) {
 
   // GET route for getting all of the presents
-<<<<<<< HEAD
-  app.get("/api/presents", function (req, res) {
-=======
   app.get("/api/users", function (req, res) {
->>>>>>> Develop
     var query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
-<<<<<<< HEAD
-=======
     db.Present.findAll({
       where: query,
       // include: [db.User]
@@ -25,7 +20,6 @@ module.exports = function (app) {
 
   // GET route for getting presents for a specific user 
   app.get("/api/presents:userId", function (req, res) {
->>>>>>> Develop
     db.Present.findAll({
       where: query,
       include: [db.User]
