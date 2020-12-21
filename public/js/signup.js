@@ -57,4 +57,26 @@ $(document).ready(function () {
 		$("#alert .msg").text(err.responseJSON);
 		$("#alert").fadeIn(500);
 	}
+
+	// $("#searchUser").on("click", function(event){
+	// 	console.log("clicked")
+	// 	event.preventDefault();
+	// 	let lname = $("#lname").val().trim();
+	// 	let fname = $("#fname").val().trim();
+	
+	// 	console.log(fname);
+	
+	// 	const url = `user/search/${fname}/${lname}`;
+	
+	// 	console.log(url);
+	
+	// 	lname = "";
+	// 	fname = "";
+	
+	
+	
+	// 	location.replace(url);
+	
+	// });
+
 });
