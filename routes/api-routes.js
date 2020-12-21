@@ -5,14 +5,14 @@ const isAuthenticated = require("../config/middleware/isAuthenticated")
 
 module.exports = function (app) {
 
-
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
-	app.post("/api/login", passport.authenticate("local", {
-		successRedirect: '/createList',
-		failureRedirect: '/login'
-	}));
+	app.post("/api/login", passport.authenticate("local"), function (req, res) {
+		res.json(req.user);
+		// successRedirect: '/createList',
+		// failureRedirect: '/login'
+	});
 
 	// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
 	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
@@ -25,7 +25,7 @@ module.exports = function (app) {
 			email: req.body.email,
 			password: req.body.password,
 		})
-			.then( () => {
+			.then(() => {
 				res.redirect(307, "/api/login");
 			})
 			.catch(function (err) {
@@ -36,13 +36,13 @@ module.exports = function (app) {
 
 	app.post("/api/addpresent", isAuthenticated, (req, res) => {
 		db.Present.create({
-		  giftName: req.body.giftName,
-		  rating: req.body.rating,
-		  UserId: req.user.id
-		}).then( () => {
-		  res.redirect("/createList");
+			giftName: req.body.giftName,
+			rating: req.body.rating,
+			UserId: req.user.id
+		}).then(() => {
+			res.redirect("/createList");
 		});
-	  });
+	});
 
 	// Route for logging user out
 	app.get("/logout", (req, res) => {

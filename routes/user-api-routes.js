@@ -1,7 +1,7 @@
-var db = require("../models");
-var isAuthenticated = require("../config/middleware/isAuthenticated")
+// var db = require("../models");
+// var isAuthenticated = require("../config/middleware/isAuthenticated")
 
-module.exports = function (app) {
+// module.exports = function (app) {
   // Find all users 
   // app.get("/api/users", function (req, res) {
   //   db.User.findAll({
@@ -32,4 +32,4 @@ module.exports = function (app) {
   //   });
 
 
-};
+// };
