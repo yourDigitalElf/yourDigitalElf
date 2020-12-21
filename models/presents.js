@@ -16,15 +16,16 @@ module.exports = (sequelize, DataTypes) => {
 	Present.associate = models => {
 		Present.belongsTo(models.User, {
 			foreignKey: {
-				
+
 				allowNull: false,
+				onDelete: "cascade"
 			},
 
 		});
 		console.log(Present);
-		
+
 	};
 
 	return Present;
-	
+
 };
