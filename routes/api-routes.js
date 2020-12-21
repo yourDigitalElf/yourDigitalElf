@@ -69,12 +69,7 @@ module.exports = function (app) {
 	app.post("/api/login", passport.authenticate("local", {
 		successRedirect: '/createList',
 		failureRedirect: '/login'
-	})
-		//  (req, res) => {
-
-		// 	res.json(req.user);
-		// }
-	);
+	}));
 
 
 

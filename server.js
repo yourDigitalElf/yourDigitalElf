@@ -20,9 +20,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // We need to use sessions to keep track of our user's login status
-app.use(
-	session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
