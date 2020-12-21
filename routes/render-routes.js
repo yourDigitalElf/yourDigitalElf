@@ -3,51 +3,51 @@ const db = require("../models");
 
 module.exports = (app) => {
 
-    app.get("/", (req, res) => {
+  app.get("/", (req, res) => {
 		res.render("index")
 	});
 
-    app.get("/login", (req, res) => {
+  app.get("/login", (req, res) => {
 		res.render("login")
-    });
+  });
     
-    app.get("/signup", (req, res) => {
+  app.get("/signup", (req, res) => {
 		res.render("signup")
 	});
 
-    app.get("/createList", isAuthenticated, (req, res) => {
-        console.log("is reloading")
-        db.Present.findAll({
-          where: {
-            UserId: req.user.id
-          }
-        }).then((data) => {
-          let Present = [];
-          
-          for (let i = 0; i < data.length; i++) {
-            presObj = {
-              giftName: data[i].dataValues.giftName,
-              rating: data[i].dataValues.rating,
-              id: data[i].dataValues.id
-            };
-    
-            Present.push(presObj);
+  app.get("/createList", isAuthenticated, (req, res) => {
+      console.log("is reloading")
+      db.Present.findAll({
+        where: {
+          UserId: req.user.id
+        }
+      }).then((data) => {
+        let Present = [];
+        
+        for (let i = 0; i < data.length; i++) {
+          presObj = {
+            giftName: data[i].dataValues.giftName,
+            rating: data[i].dataValues.rating,
+            id: data[i].dataValues.id
           };
-    
-          for(let i = 0; i < Present.length -1; i++){
-    
-            for(let j = i+1; j < Present.length; j++){
-              if(Present[i].rating < Present[j].rating){
-                let tempPresHolder = Present[j];
-                Present[j] = Present[i];
-                Present[i] = tempPresHolder;
-              }; 
-            };
+  
+          Present.push(presObj);
+        };
+  
+        for(let i = 0; i < Present.length -1; i++){
+  
+          for(let j = i+1; j < Present.length; j++){
+            if(Present[i].rating < Present[j].rating){
+              let tempPresHolder = Present[j];
+              Present[j] = Present[i];
+              Present[i] = tempPresHolder;
+            }; 
           };
-    
-          res.render("createList", { Present: Present });
-        });
-    });
+        };
+  
+        res.render("createList", { Present: Present });
+      });
+  });
 
     app.get("/users", (req, res) => {
 		db.User.findAll({
