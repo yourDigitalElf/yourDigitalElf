@@ -3,7 +3,6 @@
 //     let viewAll = $("#viewAll");
 
 //     viewAll.on("click", function (event) {
-//         // console.log(event)
 //         event.preventDefault();
 //         viewAll();
 //     });

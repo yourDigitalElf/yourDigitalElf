@@ -33,6 +33,7 @@
 
 .navbar {
     background-color: #cef2c4;
+
 }
 .nav-link {
     color: black;
@@ -53,6 +54,7 @@
                  0 5px 10px rgba(0,0,0,.25),
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15);
+    font-size: x-large;
 
 }
 .navbar-toggler-icon {
@@ -80,8 +82,7 @@
 
 #main1 {
     background-color: #ffaaaa;
-    
-background-size: cover;
+    background-size: cover;
 }
 
 #list, #jumbo {
@@ -107,6 +108,7 @@ background-size: cover;
     font-weight: 900;
 }
 
+
 #footer {
     background-color: #cef2c4;
     /* box-shadow: 0px -5px rgb(51, 214, 214); */
@@ -115,3 +117,7 @@ background-size: cover;
     width: 100%;
     
 }
+.rounded {
+    border-radius: 10%;
+}
+
