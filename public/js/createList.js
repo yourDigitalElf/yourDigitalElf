@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     }
 
-        $(function() {
+        // $(function() {
             $(".delGift").on("click", function(event) {
                 let id = $(this).data("id");
 
@@ -47,5 +47,5 @@ $(document).ready(function () {
                     }
                 )
             });
-        });
+        // });
 });
