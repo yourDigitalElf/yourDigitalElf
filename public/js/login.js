@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    var loginButton = $("#loginBtn");
+    var loginForm = $("#createBtn");
     var emailInput = $("input#username");
     var passwordInput = $("input#password");
 
     //When the form is submitted, we validate there's an username and password entered
-    loginButton.on("click", function (event) {
+    loginForm.on("click", function (event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
@@ -24,7 +24,7 @@ $(document).ready(function () {
     // loginUser does a post to our "api/login" route and if successful, redirects us the the createList page
     function loginUser(email, password) {
         $.post("/api/login", {
-            email: email,
+            username: email,
             password: password
         })
             .then(function () {
