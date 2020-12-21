@@ -27,13 +27,29 @@ $(document).ready(function () {
             rating: rating
         })
             .then(function () {
-                window.location.replace("/createList");
+                location.reload();
+                // window.location.replace("/user/retrieve");
                 // If there's an error, log the error
             })
-            .catch(function (err) {
-                console.log(err);
-            });
+            // .catch(function (err) {
+            //     console.log(err);
+            // }).finally(()=>{
+            //     window.location.replace("/user/retrieve");
+            // })
     }
 
+        $(function() {
+            $(".delGift").on("click", function(event) {
+                let id = $(this).data("id");
 
+                $.ajax("/api/presents/" + id, {
+                    type: "DELETE"
+                }).then(
+                    function(){
+                        console.log("deleted id", id);
+                        location.reload();
+                    }
+                )
+            });
+        });
 });
