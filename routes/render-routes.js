@@ -91,8 +91,9 @@ module.exports = (app) => {
           lastName: data[i].dataValues.lastName,
           presents: presArr
         };
-
-        hbArr.push(usePres);
+        if (usePres.presents.length > 0) {
+          hbArr.push(usePres);
+        }
 
         presArr = [];
       };

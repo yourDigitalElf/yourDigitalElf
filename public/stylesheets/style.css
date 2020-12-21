@@ -84,10 +84,10 @@
 background-size: cover;
 }
 
-/* #list, #jumbo {
+#list, #jumbo {
     background-image: url(https://media.gettyimages.com/videos/christmas-gifts-on-wooden-background-with-christmas-light-video-id862842674?s=640x640);
     background-size: cover;
-} */
+}
 
 .ratingNum {
     position: absolute;
@@ -96,7 +96,7 @@ background-size: cover;
 
 .buttonSty {
     position: absolute;    
-    margin-left: 90%;       
+    margin-left: 87%;       
     border-radius: 50%;
     background-color: #e7c9c9b9;
     font-family: "playfair display";
@@ -105,4 +105,13 @@ background-size: cover;
 .listSty {
     font-family: "playfair display";
     font-weight: 900;
+}
+
+#footer {
+    background-color: #cef2c4;
+    /* box-shadow: 0px -5px rgb(51, 214, 214); */
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    
 }
