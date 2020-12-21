@@ -31,15 +31,15 @@ module.exports = function (app) {
 	// 	})
 	// });
 
-	app.get("/users", (req, res) => {
+	app.get("/users", isAuthenticated, (req, res) => {
 		db.User.findAll({
 			include: [db.Present]
 		}).then((data) => {
 			let hbArr = [];
 			let presArr = [];
-			for(let i = 0; i < data.length; i++){
-				
-				for(let j = 0; j < data[i].dataValues.Presents.length; j++){
+			for (let i = 0; i < data.length; i++) {
+
+				for (let j = 0; j < data[i].dataValues.Presents.length; j++) {
 					let presCon = {
 						giftName: data[i].dataValues.Presents[j].giftName,
 						rating: data[i].dataValues.Presents[j].rating
@@ -59,7 +59,7 @@ module.exports = function (app) {
 			console.log(hbArr)
 			console.log(hbArr[0].presents)
 			console.log(hbArr[0].presents[0])
-			res.render("users", {user: hbArr});
+			res.render("users", { user: hbArr });
 		});
 
 	});

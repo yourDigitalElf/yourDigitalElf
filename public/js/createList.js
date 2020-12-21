@@ -33,11 +33,7 @@ $(document).ready(function () {
                 console.log("success")
                 // window.location.replace("/cr")
             })
-            // .catch(function (err) {
-            //     console.log(err);
-            // }).finally(()=>{
-            //     window.location.replace("/user/retrieve");
-            // })
+
     }
 
 
