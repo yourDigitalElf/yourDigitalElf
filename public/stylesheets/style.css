@@ -1,0 +1,100 @@
+.container {
+    background-color: #e09f9f;
+    margin-bottom: 25px;
+}
+
+.elfPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+
+}
+
+.cardOne {
+    background: #eddcdc;
+}
+
+.test {
+    color: red;
+    font-size: 250%;
+}
+
+.jumbotron {
+    background: #8def98;
+}
+
+.cardShadow {
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar {
+    background-color: #cef2c4;
+}
+.nav-link {
+    color: black;
+}
+.emailP {
+    font-family: 'Staatliches';
+    /* background: #0e8dbc; */
+    color: black;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+
+}
+.navbar-toggler-icon {
+    color: white;
+    background-color: black;
+   
+}
+
+.floatR {
+    float: right;
+}
+
+.floatL {
+    float: left;
+}
+
+.listTitle {
+    text-align: center;
+    font-weight: 900;
+    font-family: "henny penny";
+    font-size: 50px;
+
+}
+
+#main1 {
+    background-color: #ffaaaa;
+    /* background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-christmas-background-panel-design-treechristmas-carriagechristmaschristmas-backgroundposter-image_70783.jpg);
+background-size: cover; */
+}
+
+.ratingNum {
+    position: absolute;
+    right: 0;
+}
+
+.buttonSty {
+    position: absolute;    
+    margin-left: 90%;       
+    border-radius: 50%;
+    background-color: #e7c9c9b9;
+    font-family: "playfair display";
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.listSty {
+    font-family: "playfair display";
+    font-weight: 900;
+}
