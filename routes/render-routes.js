@@ -16,10 +16,6 @@ module.exports = (app) => {
     res.render("signup")
   });
 
-  // app.get("/createList", (req, res) => {
-  //   res.render("createList")
-  // });
-
   app.get("/createList", isAuthenticated, (req, res) => {
     console.log("is reloading")
     db.Present.findAll({

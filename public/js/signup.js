@@ -20,7 +20,7 @@ $(document).ready(function () {
 			email: emailInput.val().trim(),
 			password: passwordInput.val().trim(),
 		};
-		console.log(userData);
+		// console.log(userData);
 		if (!userData.password || !userData.firstName || !userData.lastName || !userData.email) {
 			return;
 		}
@@ -54,29 +54,39 @@ $(document).ready(function () {
 	}
 
 	function handleLoginErr(err) {
-		$("#alert .msg").text(err.responseJSON);
-		$("#alert").fadeIn(500);
+		//alert('Something went wrong, try again please');
+		UIkit.notification({
+			message: 'Something went wrong, try again please',
+			status: 'danger',
+			pos: 'top-center',
+			timeout: 2000
+		});
 	}
+
+	// function handleLoginErr(err) {
+	// 	$("#alert .msg").text(err.responseJSON);
+	// 	$("#alert").fadeIn(500);
+	// }
 
 	// $("#searchUser").on("click", function(event){
 	// 	console.log("clicked")
 	// 	event.preventDefault();
 	// 	let lname = $("#lname").val().trim();
 	// 	let fname = $("#fname").val().trim();
-	
+
 	// 	console.log(fname);
-	
+
 	// 	const url = `user/search/${fname}/${lname}`;
-	
+
 	// 	console.log(url);
-	
+
 	// 	lname = "";
 	// 	fname = "";
-	
-	
-	
+
+
+
 	// 	location.replace(url);
-	
+
 	// });
 
 });

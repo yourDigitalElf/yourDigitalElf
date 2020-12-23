@@ -9,17 +9,21 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
-    
-
-}
+    }
 
 .cardOne {
     background: #eddcdc;
 }
 
 .test {
-    color: red;
-    font-size: 250%;
+    color: rgb(42, 42, 238);
+    font-size: 350%;
+    font-family:'henny penny';
+}
+
+#gift-rating {
+    font-family: fredericka the great;
+     color: #7a4709
 }
 
 /* .jumbotron {
@@ -37,7 +41,12 @@
 }
 .nav-link {
     color: black;
+    text-shadow: 0.5px 0.5px #FF0000
 }
+.nav-item {
+    font-family: 'fredericka the great';
+}
+
 .emailP {
     font-family: 'Staatliches';
     /* background: #0e8dbc; */
@@ -59,7 +68,7 @@
 }
 .navbar-toggler-icon {
     color: white;
-    background-color: black;
+    background-color: rgb(230, 53, 53);
    
 }
 
@@ -76,18 +85,15 @@
     font-weight: 900;
     font-family: "henny penny";
     font-size: 50px;
+    color: blue;
     
 
 }
 
-#main1 {
-    background-color: #ffaaaa;
-    background-size: cover;
-}
 
-#list, #jumbo {
-    background-image: url(https://media.gettyimages.com/videos/christmas-gifts-on-wooden-background-with-christmas-light-video-id862842674?s=640x640);
-    background-size: cover;
+.options {
+    font-family: Monoton; 
+    color: #fc5102
 }
 
 .ratingNum {
@@ -99,7 +105,7 @@
     position: absolute;    
     margin-left: 87%;       
     border-radius: 50%;
-    background-color: #e7c9c9b9;
+    background-color: #ee3d3df6;
     font-family: "playfair display";
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -108,11 +114,27 @@
     font-weight: 900;
 }
 
+#jumbo,#main1,#list, #added, #main2 {
+    background-image: url(https://freedesignfile.com/upload/2016/10/Christmas-gift-box-with-gold-background-vector.jpg);
+background-size: cover;
+}
+
+#title1{
+    font-family: 'henny penny';
+    color: rgb(42, 42, 238);
+}
+#elf, #yourlist {
+    background: #ff8080;
+}
+
+#user {
+    font-family: 'henny penny';
+     font-size:large ;
+      color: #fc5102
+}
 
 #footer {
     background-color: #cef2c4;
-    /* box-shadow: 0px -5px rgb(51, 214, 214); */
-    /* position: fixed; */
     bottom: 0;
     width: 100%;
     

@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navco mb-5 pt-5 px-5">
   <img src="../assts/elfImg.webp" alt="elf pic" style="width: 5%; height: 5%;">
   <p style="font-family: 'henny penny'" class="ml-3 test d-flex justify-content-center">Your Digital Elf.</p>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon">=</span>
@@ -12,17 +11,16 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item" style="font-family: 'fredericka the great'">
-        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/">Home<span
-            class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" style="font-family: 'fredericka the great'">
-        <a class="nav-link" style="text-shadow: 0.5px 0.5px #FF0000" href="/logout">Logout</a>
+        <a class="nav-link" href="/logout">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<div style="background: #ffaaaa;" class="card mb-3">
+<div id="main2" class="card mb-3">
 
   <div class="card-body">
 
@@ -38,60 +36,60 @@
 
 
   </div>
-</div>
 
-<div style="background: #cef2c4" class="tile is-parent">
-  <article class="tile is-child notification inputB rcorners">
-    <p style="font-family: 'Fredericka the Great'" class="title">Get Started!</p>
-    <p class="subtitle">Enter desired gifts:</p>
 
-    <form class="content" id="present">
-      <div class="control">
-        <p class="control has-icons-left">
-          <input class="input is-hovered" id="gifts-input" type="text" placeholder="Enter Gifts">
-          <span class="icon is-medium is-left">
-            <i class="fas fa-gift" style="color: red;"></i>
-          </span>
-        </p>
-      </div>
+  <div stye="background: #cef2c4" class="tile is-parent">
+    <article class="tile is-child notification inputB rcorners">
+      <p style="font-family: 'Fredericka the Great'" class="title">Get Started!</p>
+      <p class="subtitle">Enter desired gifts:</p>
 
-      <div class="control">
-        <p class="control has-icons-left">
-          <select style="font-family: fredericka the great; color: #7a4709" class="input is-hovered input"
-            id="gift-rating" type="text">
+      <form class="content" id="present">
+        <div class="control">
+          <p class="control has-icons-left">
+            <input class="input is-hovered" id="gifts-input" type="text" placeholder="Enter Gifts">
+            <span class="icon is-medium is-left">
+              <i class="fas fa-gift" style="color: red;"></i>
+            </span>
+          </p>
+        </div>
 
-            <option value="">Gift Rating</option>
-            <option style="font-family: Monoton; color: #fca002" value="0">0 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="1">1 star</option>
-            <option style="font-family: Monoton; color: #fca002" value="2">2 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="3">3 stars</option>
-            <option style="font-family: Monoton; color: #fca002" value="4">4 stars</option>
-          </select>
-          <span class="icon is-large is-left">
-            <i class="fas fa-star" style="color: red;"></i>
-          </span>
-        </p>
-        <a id="addBtn" type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
-      </div>
-    </form>
-    <div class="row">
-      <div style="background: #ff8080" class="container mt-3 mb-3 py-5 px-5 rounded">
-        <h2 class="listSty">Your List</h2>
-        <p class="listSty">Items are listed below based on the star rating you selected</p>
-        <br>
-        <div class="cardShadow card mb-3">
-          <ul class="mb-3 list-group">
+        <div class="control">
+          <p class="control has-icons-left">
+            <select class="input is-hovered input" id="gift-rating" type="text">
 
-            {{#each Present}}
-            {{> gifts/gifts-block}}
+              <option value="">Gift Rating</option>
+              <option class="options" value="1">1 star</option>
+              <option class="options" value="2">2 stars</option>
+              <option class="options" value="3">3 stars</option>
+              <option class="options" value="4">4 stars</option>
+              <option class="options" value="5">5 stars</option>
+            </select>
+            <span class="icon is-large is-left">
+              <i class="fas fa-star" style="color: red;"></i>
+            </span>
+          </p>
+          <a id="addBtn" type="submit" class="cardShadow btn btn-warning justify-content-left">Submit</a>
+        </div>
+      </form>
+      <div class="row">
+        <div id="yourlist" class="container mt-3 mb-3 py-5 px-5 rounded">
+          <h2 class="listSty">Your List</h2>
+          <p class="listSty">Items are listed below based on the star rating you selected</p>
+          <br>
+          <div class="cardShadow card mb-3">
+            <ul class="mb-3 list-group">
 
-            {{/each}}
+              {{#each Present}}
+              {{> gifts/gifts-block}}
 
-          </ul>
+              {{/each}}
+
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
+  </div>
 </div>
 
 
