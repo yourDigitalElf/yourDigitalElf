@@ -20,7 +20,7 @@ Explore the [Project Page](https://github.com/yourdigitalElf/yourDigitalElf)
 The focus of this project was to create an app that makes it easy for users to create and view other people's wish list for Chrismtas or holiday presents. 
 
 
-![Project Gif](Assets/yourDigitalElf.gif)
+![Project Gif](public/assts/yourdigitalelf.gif)
 
 ### User Story
 
